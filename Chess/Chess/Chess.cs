@@ -8,9 +8,11 @@ namespace Chess
 {
     public class Chess
     {
-        private string fen;
+        private const string startFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
-        public Chess(string fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
+        public string fen { get; private set; }
+        
+        public Chess(string fen = startFen)
         {
             this.fen = fen;
         }
