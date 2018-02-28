@@ -11,15 +11,21 @@ namespace DemoChess
     {
         static void Main(string[] args)
         {
+            Random rnd = new Random();
             Chess.Chess chess = new Chess.Chess();
+            List<string> moves;
+
             while (true)
             {
+                moves = chess.GetAllMoves();
                 Console.WriteLine(chess.fen);
                 Print(ChessToAscii(chess));
-
+                Console.WriteLine(chess.IsCheck() ? "CHECK" : "");
             
             string move = Console.ReadLine();
             if (move == "q") break;
+            if (move == "")
+                    move = moves[rnd.Next(moves.Count)];
             chess = chess.Move(move);
             }
         }
