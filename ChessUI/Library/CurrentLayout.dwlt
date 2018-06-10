@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 9
+  controlID: 71
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 10
+  controlID: 102
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 11
+  controlID: 103
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -362,9 +362,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 64010000
     m_LastClickedID: 0
-    m_ExpandedIDs: f2fbffff00000000
+    m_ExpandedIDs: e8fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -414,14 +414,14 @@ MonoBehaviour:
     height: 343
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 1423.5799631822201
+  lastFramingTime: 214.93102617286686
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -15.99743, y: -0.42219874, z: 0.1902871}
+    m_Target: {x: 7, y: 7.2104616, z: 0}
     speed: 2
-    m_Value: {x: -15.99743, y: -0.42219874, z: 0.1902871}
+    m_Value: {x: 7, y: 7.2104616, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -453,9 +453,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 23.881617
+    m_Target: 37.336697
     speed: 2
-    m_Value: 23.881617
+    m_Value: 37.336697
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -510,14 +510,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\repo\untity\Chess\ChessRules\Chess\ChessUI
+  m_LastProjectPath: C:\repo\Chess\ChessUI
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: da080000
-    m_LastClickedID: 2266
-    m_ExpandedIDs: 00000000da08000000ca9a3bffffff7f
+    m_SelectedIDs: e2080000
+    m_LastClickedID: 2274
+    m_ExpandedIDs: 00000000e208000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -545,7 +545,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000da080000
+    m_ExpandedIDs: 00000000e2080000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

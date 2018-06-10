@@ -61,10 +61,10 @@
   <ItemGroup>
     <Compile Include="Assets\Rules.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/repo/untity/Chess/ChessRules/Chess/ChessUI/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/repo/Chess/ChessUI/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/repo/untity/Chess/ChessRules/Chess/ChessUI/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/repo/Chess/ChessUI/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

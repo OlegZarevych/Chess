@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Chess;
+
 public class Rules : MonoBehaviour {
 
     DragAndDrop dad;
+    Chess.Chess chess;
 
     public Rules()
     {
         dad = new DragAndDrop();
+        chess = new Chess.Chess();
     }
 	// Use this for initialization
 	void Start () {
@@ -19,6 +23,28 @@ public class Rules : MonoBehaviour {
     void Update()
     {
         dad.Action();
+    }
+
+    void ShowFigures()
+    {
+        int nr = 0;
+        for(int y = 0; y < 8; y++)
+            for(int x = 0; x < 8; x++)
+            {
+                string figure = chess.GetFigureAt(x, y).ToString();
+                if (figure == ".") continue;
+                PlaceFigure("box" + nr, figure, x, y);
+                nr++;
+            }
+        for(; nr < 32; nr++)
+        {
+            PlaceFigure("box" + nr, "q",9 ,9);
+        }
+    }
+
+    void PlaceFigure(string box, string figure, int x, int y)
+    {
+
     }
 }
 
