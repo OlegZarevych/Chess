@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 using Chess;
@@ -14,37 +13,82 @@ public class Rules : MonoBehaviour {
         dad = new DragAndDrop();
         chess = new Chess.Chess();
     }
+
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Start ()
+    {
+        ShowFigures();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        dad.Action();
-    }
-
-    void ShowFigures()
-    {
-        int nr = 0;
-        for(int y = 0; y < 8; y++)
-            for(int x = 0; x < 8; x++)
-            {
-                string figure = chess.GetFigureAt(x, y).ToString();
-                if (figure == ".") continue;
-                PlaceFigure("box" + nr, figure, x, y);
-                nr++;
-            }
-        for(; nr < 32; nr++)
+        if (dad.Action())
         {
-            PlaceFigure("box" + nr, "q",9 ,9);
+            string from = GetSquare(dad.pickPosition);
+            Debug.Log("from :" + from);
+            string to = GetSquare(dad.dropPosition);
+            Debug.Log("to :" + to);
+            string figure = chess.GetFigureAt(GetSquareX(dad.pickPosition), GetSquareY(dad.pickPosition)).ToString();
+            Debug.Log("figure :" + figure);
+            string move = figure + from + to;
+            Debug.Log("Move :" + move);
+            chess = chess.Move(move);
+            ShowFigures();
         }
     }
 
-    void PlaceFigure(string box, string figure, int x, int y)
+    string GetSquare(Vector2 position) //e2
     {
+        int x = Convert.ToInt32(position.x / 2.0);
+        int y = Convert.ToInt32(position.y / 2.0);
+        return ((char)('a' + x)).ToString() + (y + 1).ToString(); 
+    }
 
+    int GetSquareX(Vector2 position) //e2
+    {
+        return Convert.ToInt32(position.x / 2.0);
+    }
+
+    int GetSquareY(Vector2 position) //e2
+    {
+        return Convert.ToInt32(position.y / 2.0);
+    }
+
+    private void ShowFigures()
+    {
+        int nr = 0;
+        for (int y = 0; y < 8; y++)
+            for (int x = 0; x < 8; x++)
+            {
+                string figure = chess.GetFigureAt(x, y).ToString();
+                if (figure == ".") continue;
+                PlaceFigure("Box" + nr, figure, x, y);
+                nr++;
+            }
+        for (; nr < 32; nr++)
+            {
+                PlaceFigure("Box" + nr, "q", 9, 9);
+            }      
+    }
+
+    private void PlaceFigure(string box, string figure, int x, int y)
+    {
+        // find box by name for place figure
+        GameObject goBox = GameObject.Find(box);
+
+        // find figure by name which we want place into box 
+        GameObject goFigure = GameObject.Find(figure);
+
+        GameObject goSquare = GameObject.Find("" + y + x);
+
+        var spriteFigure = goFigure.GetComponent<SpriteRenderer>();
+
+        var spriteBox = goBox.GetComponent<SpriteRenderer>();
+
+        spriteBox.sprite = spriteFigure.sprite;
+
+        goBox.transform.position = goSquare.transform.position;
     }
 }
 
@@ -55,6 +99,9 @@ public class DragAndDrop
         none,
         drag
     }
+
+    public Vector2 pickPosition { get; private set; }
+    public Vector2 dropPosition { get; private set; }
 
     State state;
     GameObject item;
@@ -99,10 +146,10 @@ public class DragAndDrop
         Transform clickedItem = GetItemAt(clickPosition);
 
         if (clickedItem == null) return;
-
+        pickPosition = clickedItem.position;
         item = clickedItem.gameObject;
         state = State.drag;
-        offset = (Vector2)clickedItem.position - clickPosition;
+        offset = pickPosition - clickPosition;
     }
 
     Vector2 GetClickPosition()
@@ -125,6 +172,7 @@ public class DragAndDrop
 
     void Drop()
     {
+        dropPosition = item.transform.position;
         state = State.none;
         item = null;
     }
